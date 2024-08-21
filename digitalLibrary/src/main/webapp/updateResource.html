@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Resource Availability</title>
+</head>
+<body>
+<h1>Update Resource Availability</h1>
+<form id="updateAvailabilityForm" action="/api/resources" method="PATCH">
+    <label for="id">Resource ID:</label><br>
+    <input type="number" id="id" name="id" required><br><br>
+
+    <label for="status">Availability Status:</label><br>
+    <select id="status" name="status" required>
+        <option value="AVAILABLE">AVAILABLE</option>
+        <option value="CHECKED_OUT">CHECKED_OUT</option>
+        <option value="UNDER_MAINTENANCE">UNDER_MAINTENANCE</option>
+    </select><br><br>
+
+    <input type="submit" value="Update Availability">
+</form>
+
+<script>
+    document.getElementById('updateAvailabilityForm').onsubmit = function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const id = document.getElementById('id').value;
+        const status = document.getElementById('status').value;
+
+        fetch(`/api/resources/${id}/availability?status=${status}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Failed to update availability status');
+            }
+        })
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+    };
+</script>
+</body>
+</html>

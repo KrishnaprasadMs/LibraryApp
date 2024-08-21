@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Resource</title>
+</head>
+<body>
+<h1>Add a New Digital Resource</h1>
+<form id="addResourceForm" action="/api/resources" method="POST">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="author">Author:</label><br>
+    <input type="text" id="author" name="author" required><br><br>
+
+    <label for="type">Type:</label><br>
+    <select id="type" name="type" required>
+        <option value="EBOOK">EBOOK</option>
+        <option value="AUDIO_BOOK">AUDIO_BOOK</option>
+        <option value="RESEARCH_PAPER">RESEARCH_PAPER</option>
+    </select><br><br>
+
+    <label for="genre">Genre:</label><br>
+    <select id="genre" name="genre" required>
+        <option value="FICTION">FICTION</option>
+        <option value="NON_FICTION">NON_FICTION</option>
+        <option value="SCIENCE_FICTION">SCIENCE_FICTION</option>
+        <option value="SCIENCE">SCIENCE</option>
+        <option value="HISTORY">HISTORY</option>
+    </select><br><br>
+
+    <label for="publicationDate">Publication Date (YYYY-MM-DD):</label><br>
+    <input type="date" id="publicationDate" name="publicationDate" required><br><br>
+
+    <label for="isbn">ISBN:</label><br>
+    <input type="text" id="isbn" name="isbn" required><br><br>
+
+    <label for="availabilityStatus">Availability Status:</label><br>
+    <select id="availabilityStatus" name="availabilityStatus" required>
+        <option value="AVAILABLE">AVAILABLE</option>
+        <option value="CHECKED_OUT">CHECKED_OUT</option>
+        <option value="UNDER_MAINTENANCE">UNDER_MAINTENANCE</option>
+    </select><br><br>
+
+    <input type="submit" value="Add Resource">
+</form>
+</body>
+</html>

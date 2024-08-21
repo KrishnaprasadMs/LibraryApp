@@ -1,8 +1,8 @@
-package repository;
+package com.example.digitalLibrary.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entity.Library;
+import com.example.digitalLibrary.entity.Library;
 
 public interface LibraryRepo extends JpaRepository<Library, Integer>{
 
